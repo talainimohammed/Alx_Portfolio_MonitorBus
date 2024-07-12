@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Profile Bus</h3>
+    <div class="row mb-3">
+      <div class="col-lg-11">
+        <div class="row">
+          <div class="col">
+            <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+                <div class="card shadow mb-3">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Infos Bus</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                        <div class="mb-3"><label class="form-label" for="username"><strong>Matricule</strong></label>
+                            <input class="form-control" type="text" id="matricule" [(ngModel)]="bus.matricule" placeholder="matricule" name="matricule" required>
+                            <div *ngIf="form.controls['matricule'].invalid && (form.controls['matricule'].dirty || form.controls['matricule'].touched)" class="text-danger">
+                              <div *ngIf="form.controls['matricule'].errors?.['required']">Matricule est requis.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                        <div class="mb-3"><label class="form-label" for="email"><strong>NB Places</strong></label>
+                            <input class="form-control" type="number" id="nbplace" [(ngModel)]="bus.nbplaces" placeholder="nombre places" name="nbplaces" required>
+                            <div *ngIf="form.controls['nbplaces'].invalid && (form.controls['nbplaces'].dirty || form.controls['nbplaces'].touched)" class="text-danger">
+                              <div *ngIf="form.controls['nbplaces'].errors?.['required']">Nombre Places est requis.</div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <div class="mb-3"><label class="form-label" for="first_name"><strong>Chauffeur</strong></label>
+                            <input class="form-control" type="text" id="first_name" [(ngModel)]="bus.idchauffeur" placeholder="chauffeur" name="chauffeur"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3" *ngIf="id==0">
+                                <button class="btn btn-primary btn-sm" type="submit">Enregistrer</button>
+                              </div>
+                              <div class="mb-3" *ngIf="id!=0">
+                                <button class="btn btn-primary btn-sm" type="submit">Modifer</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow mb-5"></div>
+  </div>
+  
